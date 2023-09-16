@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { carsSlice } from './slices/carsSlice';
+import { carsSlice } from './cars/carsSlice';
 // import { filterSlice } from './slices/filterSlice';
 
 
