@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { getCarById } from "../../redux/selectors";
 import { addresSplitter } from "../../utils/addressSplitter";
 
-import { CarThumbnail } from "./CarListItem.styled";
+import { CarThumbnail, CarItemTitle, TitleBlock } from "./CarListItem.styled";
 
 export default function CarListItem({ id }) {
   const {
@@ -23,16 +23,16 @@ export default function CarListItem({ id }) {
       <CarThumbnail>
         <img src={img} alt={`${brand} ${model}`} />
       </CarThumbnail>
-      <div className="title-block">
+      <TitleBlock>
         <div className="title-year">
-          <h2>
+          <CarItemTitle>
             {brand} <span className="blue">{model}</span>, {year}
-          </h2>
+          </CarItemTitle>
         </div>
         <div className="price">
           <p>{rentalPrice}</p>
         </div>
-      </div>
+      </TitleBlock>
       <div className="short-info">
         <p className="info-element">{addresSplitter(address)}</p>
         <p className="info-element">{rentalCompany}</p>
