@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getCarById } from "../../redux/selectors";
 import { addresSplitter } from "../../utils/addressSplitter";
+import { modelNameTruncate } from "../../utils/modelNameTruncate";
+
 
 import { CarThumbnail, CarItemTitle, TitleBlock } from "./CarListItem.styled";
 
@@ -16,17 +18,19 @@ export default function CarListItem({ id }) {
     rentalCompany,
     address,
     mileage,
+    photoLink
   } = useSelector((state) => getCarById(state, id));
 
+ 
   return (
     <li>
       <CarThumbnail>
-        <img src={img} alt={`${brand} ${model}`} />
+        <img src={img || photoLink} alt={`${brand} ${model}`} />
       </CarThumbnail>
       <TitleBlock>
         <div className="title-year">
           <CarItemTitle>
-            {brand} <span className="blue">{model}</span>, {year}
+            {brand} <span className="blue">{modelNameTruncate(model)}</span>, {year}
           </CarItemTitle>
         </div>
         <div className="price">
