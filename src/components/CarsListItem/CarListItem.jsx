@@ -4,8 +4,8 @@ import { getCarById } from "../../redux/selectors";
 import { addresSplitter } from "../../utils/addressSplitter";
 import { modelNameTruncate } from "../../utils/modelNameTruncate";
 
-
-import { CarThumbnail, CarItemTitle, TitleBlock } from "./CarListItem.styled";
+import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
+import { CarThumbnail, CarItemTitle, TitleBlock, CartListItemWrapper } from "./CarListItem.styled";
 
 export default function CarListItem({ id }) {
   const {
@@ -23,10 +23,11 @@ export default function CarListItem({ id }) {
 
  
   return (
-    <li>
+    <CartListItemWrapper>
       <CarThumbnail>
         <img src={img || photoLink} alt={`${brand} ${model}`} />
       </CarThumbnail>
+      <FavoriteHeart id={id}/>
       <TitleBlock>
         <div className="title-year">
           <CarItemTitle>
@@ -44,6 +45,6 @@ export default function CarListItem({ id }) {
         <p className="info-element">{mileage}km</p>
       </div>
       <button className="more">Learn More</button>
-    </li>
+    </CartListItemWrapper>
   );
 }

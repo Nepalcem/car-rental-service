@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const CartListItemWrapper = styled.li`
+  position: relative;
+`;
+
 export const CarThumbnail = styled.div`
   width: 274px;
   height: 268px;
@@ -18,7 +22,7 @@ export const CarItemTitle = styled.h2`
 `;
 
 export const TitleBlock = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
