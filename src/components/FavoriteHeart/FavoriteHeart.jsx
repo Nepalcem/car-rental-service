@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import { HeartIconWrapper } from "./FavoriteHeart.styled";
 import FavoriteHeartIcon from "./FavoriteHeartIcon";
+import { toast } from "react-toastify";
 
 export default function FavoriteHeart({ id }) {
   const [addedToLocale, setAddedToLocale] = useState(
@@ -22,6 +23,7 @@ export default function FavoriteHeart({ id }) {
       const updatedFavorites = favoriteCars.filter(el => el.id !== car.id);
       localStorage.setItem("favoriteCars", JSON.stringify(updatedFavorites));
       setAddedToLocale(false);
+      toast.warning('Car was removed from your Favorites');
       return
     }
     
@@ -30,6 +32,7 @@ export default function FavoriteHeart({ id }) {
     localStorage.setItem("favoriteCars", JSON.stringify(favoriteCars));
     setAddedToLocale(true);
     localStorage.setItem(`addedToLocale_${id}`, JSON.stringify(true));
+    toast.success('Car was added to your Favorites');
   };
 
   return (
