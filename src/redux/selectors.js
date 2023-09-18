@@ -6,6 +6,7 @@ export const getCarById = (state, carId) => {
   };
 export const getIsLoading = state => state.cars.isLoading;
 export const getError = state => state.cars.error;
+export const getFavoriteCars = state => state.favoriteCars;
 // export const getFilter = state => state.filter;
 // export const getIsAddContactPending = state => state.contacts.isAddContactPending;
 
