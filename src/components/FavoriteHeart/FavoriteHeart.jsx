@@ -12,14 +12,17 @@ export default function FavoriteHeart({ id }) {
 const favoriteCars = useSelector(getFavoriteCars);
 
 
+
   const [addedToLocale, setAddedToLocale] = useState(() => {
     return favoriteCars.some(car => car.id === id);
   });
 
   const car = useSelector((state) => getCarById(state, id));
   const dispatch = useDispatch();
-  
+
+
   const handleToggleFavorite = () => {
+
     if (addedToLocale) {
       dispatch(removeFavoriteCar(car.id));
       setAddedToLocale(false);
