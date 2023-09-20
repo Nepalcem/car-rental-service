@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import { getCarById, getFavoriteCars } from "../../redux/selectors";
+import { getCarById, getFavoriteCarById, getFavoriteCars } from "../../redux/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteCar, removeFavoriteCar } from "../../redux/favorites/favoriteSlice";
 
 import { HeartIconWrapper } from "./FavoriteHeart.styled";
 import FavoriteHeartIcon from "./FavoriteHeartIcon";
 import { toast } from "react-toastify";
+import { useLocation } from "react-router-dom";
 
 export default function FavoriteHeart({ id }) {
 
 const favoriteCars = useSelector(getFavoriteCars);
 
-
-
+//return true*false if the car with such id was added to favorites
   const [addedToLocale, setAddedToLocale] = useState(() => {
     return favoriteCars.some(car => car.id === id);
   });
 
-  const car = useSelector((state) => getCarById(state, id));
+  //get different car Selector to take store values depending on the current page
+  const location = useLocation();
+  const carSelector = location.pathname.includes('catalog') ? getCarById : getFavoriteCarById;
+  const car = useSelector((state) => carSelector(state, id));
+
   const dispatch = useDispatch();
 
 
@@ -34,24 +38,6 @@ const favoriteCars = useSelector(getFavoriteCars);
     }
   };
   
-  // const addCarToLocale = (car) => {
-  //   const favoriteCars = JSON.parse(localStorage.getItem("favoriteCars")) || [];
-
-  //   if (addedToLocale) {
-  //     const updatedFavorites = favoriteCars.filter(el => el.id !== car.id);
-  //     localStorage.setItem("favoriteCars", JSON.stringify(updatedFavorites));
-  //     setAddedToLocale(false);
-  //     toast.warning('Car was removed from your Favorites');
-  //     return
-  //   }
-    
-
-  //   favoriteCars.push(car);
-  //   localStorage.setItem("favoriteCars", JSON.stringify(favoriteCars));
-  //   setAddedToLocale(true);
-  //   toast.success('Car was added to your Favorites');
-  // };
-
   return (
     <HeartIconWrapper onClick={handleToggleFavorite} $addedToLocale={addedToLocale} >
       <FavoriteHeartIcon />
