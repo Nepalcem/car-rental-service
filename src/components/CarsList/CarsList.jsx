@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from 'react-toastify';
-import { fetchCars,fetchAdditionalCars } from "../../redux/cars/carsApiOperations";
+import { fetchCars } from "../../redux/cars/carsApiOperations";
 import { getCars, getIsLoading } from "../../redux/selectors";
 
 import CarListItem from "../CarsListItem/CarListItem";
@@ -10,8 +10,8 @@ import { CarsListUL } from "./CarsList.styled";
 import { ProgressBarStyled, ProgressBarDiv } from "./CarsList.styled";
 
 export default function CarsList() {
-  const [currentPage, setCurrentPage] = useState(1);
   const [showLoadMore, setShowLoadMore] = useState(false);
+  const [visibleCars, setVisibleCars] = useState(8);
 
   const dispatch = useDispatch();
   const cars = useSelector(getCars);
@@ -21,28 +21,24 @@ export default function CarsList() {
     if (cars.length > 0) {
       return
     }
-    dispatch(fetchCars({ page: currentPage })).then((response) => {
-      if (response.payload.length === 8) {
-        setShowLoadMore(true);
-      }
-    });
-  }, [dispatch, currentPage,cars.length]);
+    dispatch(fetchCars());
+    setShowLoadMore(true);
+  }, [dispatch, cars.length]);
+
 
   const loadMore = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-    dispatch(fetchAdditionalCars({ page: currentPage + 1 })).then((response) => {
-      if (response.payload.length < 8) {
-        setShowLoadMore(false);
-        toast.info(`You've reached the end of the collection!`);
-      }
-    });
+    setVisibleCars((prev) => prev + 8);
+    if (visibleCars + 8 >= cars.length) {
+      setShowLoadMore(false)
+      toast.info(`You've reached the end of the collection!`);
+    }
   };
 
   return (
     <>
       {cars.length > 0 && (
         <CarsListUL>
-          {cars.map(({ id }) => {
+          {cars.slice(0,visibleCars).map(({ id }) => {
             return <CarListItem key={id} id={id} />;
           })}
         </CarsListUL>
@@ -53,7 +49,6 @@ export default function CarsList() {
         </ProgressBarDiv>
       )}
       {showLoadMore && <LoadMoreBtn onClick={loadMore} />}
-      {/* <ToastContainer autoClose={4000} theme="colored" /> */}
     </>
   );
 }
