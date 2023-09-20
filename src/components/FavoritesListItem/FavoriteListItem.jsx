@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { addresSplitter } from "../../utils/addressSplitter";
 import { modelNameTruncate } from "../../utils/modelNameTruncate";
 
@@ -9,6 +9,7 @@ import {
   TitleBlock,
   CartListItemWrapper,
 } from "../CarsListItem/CarListItem.styled";
+import CarModal from "../CarModal/CarModal";
 
 export default function FavoriteListItem({ car }) {
   const {
@@ -21,9 +22,18 @@ export default function FavoriteListItem({ car }) {
     rentalPrice,
     rentalCompany,
     address,
-    mileage,
     photoLink,
   } = car;
+
+  const [openModal, setOpenModal] = useState(false);
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
 
   return (
     <CartListItemWrapper>
@@ -46,9 +56,12 @@ export default function FavoriteListItem({ car }) {
         <p className="info-element">{addresSplitter(address)}</p>
         <p className="info-element">{rentalCompany}</p>
         <p className="info-element">{type}</p>
-        <p className="info-element">{mileage}km</p>
+        <p className="info-element">{id}</p>
       </div>
-      <button className="more">Learn More</button>
+      <button className="more" onClick={handleOpenModal}>
+        Learn More
+      </button>
+      <CarModal open={openModal} handleClose={handleCloseModal} id={id} />
     </CartListItemWrapper>
   );
 }

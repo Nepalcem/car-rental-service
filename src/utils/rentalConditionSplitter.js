@@ -1,0 +1,1 @@
+export const rentalConditionSplitter = rentalCondition =>  rentalCondition.split('\n');
