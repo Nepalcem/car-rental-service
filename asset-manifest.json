@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/car-rental-service/static/css/main.1d3e34cd.css",
-    "main.js": "/car-rental-service/static/js/main.276ab9ae.js",
+    "main.js": "/car-rental-service/static/js/main.73b1b910.js",
     "static/js/493.d7184678.chunk.js": "/car-rental-service/static/js/493.d7184678.chunk.js",
-    "static/js/441.4fe3d7d0.chunk.js": "/car-rental-service/static/js/441.4fe3d7d0.chunk.js",
-    "static/js/250.ab6cf35a.chunk.js": "/car-rental-service/static/js/250.ab6cf35a.chunk.js",
+    "static/js/441.30862a90.chunk.js": "/car-rental-service/static/js/441.30862a90.chunk.js",
+    "static/js/250.af9e6b90.chunk.js": "/car-rental-service/static/js/250.af9e6b90.chunk.js",
     "static/js/940.d74cc2b4.chunk.js": "/car-rental-service/static/js/940.d74cc2b4.chunk.js",
-    "static/js/881.765733f9.chunk.js": "/car-rental-service/static/js/881.765733f9.chunk.js",
+    "static/js/2.02a3effd.chunk.js": "/car-rental-service/static/js/2.02a3effd.chunk.js",
     "index.html": "/car-rental-service/index.html",
     "main.1d3e34cd.css.map": "/car-rental-service/static/css/main.1d3e34cd.css.map",
-    "main.276ab9ae.js.map": "/car-rental-service/static/js/main.276ab9ae.js.map",
+    "main.73b1b910.js.map": "/car-rental-service/static/js/main.73b1b910.js.map",
     "493.d7184678.chunk.js.map": "/car-rental-service/static/js/493.d7184678.chunk.js.map",
-    "441.4fe3d7d0.chunk.js.map": "/car-rental-service/static/js/441.4fe3d7d0.chunk.js.map",
-    "250.ab6cf35a.chunk.js.map": "/car-rental-service/static/js/250.ab6cf35a.chunk.js.map",
+    "441.30862a90.chunk.js.map": "/car-rental-service/static/js/441.30862a90.chunk.js.map",
+    "250.af9e6b90.chunk.js.map": "/car-rental-service/static/js/250.af9e6b90.chunk.js.map",
     "940.d74cc2b4.chunk.js.map": "/car-rental-service/static/js/940.d74cc2b4.chunk.js.map",
-    "881.765733f9.chunk.js.map": "/car-rental-service/static/js/881.765733f9.chunk.js.map"
+    "2.02a3effd.chunk.js.map": "/car-rental-service/static/js/2.02a3effd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1d3e34cd.css",
-    "static/js/main.276ab9ae.js"
+    "static/js/main.73b1b910.js"
   ]
 }
