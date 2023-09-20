@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/car-rental-service/static/css/main.1d3e34cd.css",
-    "main.js": "/car-rental-service/static/js/main.1abf00b6.js",
+    "main.js": "/car-rental-service/static/js/main.ca870e2c.js",
     "static/js/493.d7184678.chunk.js": "/car-rental-service/static/js/493.d7184678.chunk.js",
-    "static/js/249.94a8ef53.chunk.js": "/car-rental-service/static/js/249.94a8ef53.chunk.js",
-    "static/js/250.af9e6b90.chunk.js": "/car-rental-service/static/js/250.af9e6b90.chunk.js",
+    "static/js/249.4743cd43.chunk.js": "/car-rental-service/static/js/249.4743cd43.chunk.js",
+    "static/js/250.70b6ce67.chunk.js": "/car-rental-service/static/js/250.70b6ce67.chunk.js",
     "static/js/940.d74cc2b4.chunk.js": "/car-rental-service/static/js/940.d74cc2b4.chunk.js",
     "static/js/2.02a3effd.chunk.js": "/car-rental-service/static/js/2.02a3effd.chunk.js",
     "static/js/705.bd9636ac.chunk.js": "/car-rental-service/static/js/705.bd9636ac.chunk.js",
     "index.html": "/car-rental-service/index.html",
     "main.1d3e34cd.css.map": "/car-rental-service/static/css/main.1d3e34cd.css.map",
-    "main.1abf00b6.js.map": "/car-rental-service/static/js/main.1abf00b6.js.map",
+    "main.ca870e2c.js.map": "/car-rental-service/static/js/main.ca870e2c.js.map",
     "493.d7184678.chunk.js.map": "/car-rental-service/static/js/493.d7184678.chunk.js.map",
-    "249.94a8ef53.chunk.js.map": "/car-rental-service/static/js/249.94a8ef53.chunk.js.map",
-    "250.af9e6b90.chunk.js.map": "/car-rental-service/static/js/250.af9e6b90.chunk.js.map",
+    "249.4743cd43.chunk.js.map": "/car-rental-service/static/js/249.4743cd43.chunk.js.map",
+    "250.70b6ce67.chunk.js.map": "/car-rental-service/static/js/250.70b6ce67.chunk.js.map",
     "940.d74cc2b4.chunk.js.map": "/car-rental-service/static/js/940.d74cc2b4.chunk.js.map",
     "2.02a3effd.chunk.js.map": "/car-rental-service/static/js/2.02a3effd.chunk.js.map",
     "705.bd9636ac.chunk.js.map": "/car-rental-service/static/js/705.bd9636ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1d3e34cd.css",
-    "static/js/main.1abf00b6.js"
+    "static/js/main.ca870e2c.js"
   ]
 }
