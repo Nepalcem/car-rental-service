@@ -1,15 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCars } from "./carsApiOperations";
+import {  fetchCars } from "./carsApiOperations";
+
 
 const carsInitialState = {
   items: [],
   isLoading: false,
   error: null,
+  filteredItems:[],
 };
 
 export const carsSlice = createSlice({
   name: "cars",
   initialState: carsInitialState,
+  reducers: {
+    // Add your additional action here
+    setCars: (state, action) => {
+      state.filteredItems = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCars.pending, (state) => {
@@ -26,3 +34,5 @@ export const carsSlice = createSlice({
       })
   },
 });
+
+export const { setCars } = carsSlice.actions;

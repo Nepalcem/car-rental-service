@@ -49,7 +49,7 @@ export default function CarListItem({ id }) {
           </CarItemTitle>
         </div>
         <div className="price">
-          <p>{rentalPrice}</p>
+          <p>${rentalPrice}</p>
         </div>
       </TitleBlock>
       <div className="short-info">

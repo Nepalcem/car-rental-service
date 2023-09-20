@@ -5,11 +5,8 @@ export const favoriteSlice = createSlice({
   initialState: JSON.parse(localStorage.getItem("favoriteCars")) || [],
   reducers: {
     addFavoriteCar: (state, action) => {
-      console.log(state.favoriteCars);
       const updatedFavorites = [...state, action.payload];
-
       localStorage.setItem("favoriteCars", JSON.stringify(updatedFavorites));
-      // state.favoriteCars = updatedFavorites;
       return updatedFavorites;
     },
     removeFavoriteCar: (state, action) => {
@@ -22,4 +19,3 @@ export const favoriteSlice = createSlice({
 
 export const { addFavoriteCar, removeFavoriteCar } = favoriteSlice.actions;
 export default favoriteSlice;
-

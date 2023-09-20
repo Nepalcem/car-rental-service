@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { fetchCars } from "../../redux/cars/carsApiOperations";
-import { getCars, getIsLoading } from "../../redux/selectors";
+import { getCars, getFilteredCars, getIsLoading } from "../../redux/selectors";
 
 import CarListItem from "../CarsListItem/CarListItem";
 import LoadMoreBtn from "../LoadMoreButton/LoadMoreButton";
@@ -15,34 +15,51 @@ export default function CarsList() {
 
   const dispatch = useDispatch();
   const cars = useSelector(getCars);
+  const filteredCars = useSelector(getFilteredCars);
   const loading = useSelector(getIsLoading);
 
   useEffect(() => {
     if (cars.length > 0) {
-      return
+      return;
     }
-    dispatch(fetchCars());
-    setShowLoadMore(true);
+    dispatch(fetchCars()).then(() => {
+      setShowLoadMore(true);
+    });
   }, [dispatch, cars.length]);
 
+  useEffect(() => {
+    if (filteredCars.length === 0 && cars.length > 8) {
+      setShowLoadMore(true);
+    } else if (filteredCars.length <= 8) {
+      setShowLoadMore(false);
+    } else {
+      setShowLoadMore(true);
+    }
+  }, [cars.length, filteredCars.length]);
 
   const loadMore = () => {
+
     setVisibleCars((prev) => prev + 8);
-    if (visibleCars + 8 >= cars.length) {
-      setShowLoadMore(false)
+    console.log(visibleCars);
+    if (filteredCars.length === 0 && visibleCars + 8 >= cars.length) {
+      setShowLoadMore(false);
+      toast.info(`You've reached the end of the collection!`);
+    } else if (filteredCars.length > 8 && visibleCars + 8 >= filteredCars.length) {
+      setShowLoadMore(false);
       toast.info(`You've reached the end of the collection!`);
     }
+    console.log(visibleCars);
   };
 
   return (
     <>
-      {cars.length > 0 && (
-        <CarsListUL>
-          {cars.slice(0,visibleCars).map(({ id }) => {
-            return <CarListItem key={id} id={id} />;
-          })}
-        </CarsListUL>
-      )}
+      <CarsListUL>
+        {(filteredCars.length > 0 ? filteredCars : cars)
+          .slice(0, visibleCars)
+          .map(({ id }) => (
+            <CarListItem key={id} id={id} />
+          ))}
+      </CarsListUL>
       {loading && (
         <ProgressBarDiv>
           <ProgressBarStyled ariaLabel="progress-bar-loading" />
