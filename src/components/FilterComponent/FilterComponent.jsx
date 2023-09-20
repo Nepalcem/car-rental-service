@@ -24,7 +24,6 @@ export default function FilterComponent() {
       mileageTo: "",
     },
     onSubmit: (values) => {
-      // Handle the form submission logic here
 
       const filteredCars = cars.filter((car) => {
         const isBrandMatch = values.brand ? car.brand === values.brand : true;
@@ -35,7 +34,6 @@ export default function FilterComponent() {
           (!values.mileageFrom || car.mileage >= values.mileageFrom) &&
           (!values.mileageTo || car.mileage <= values.mileageTo);
 
-        console.log(isBrandMatch, isPriceMatch, isMileageMatch);
         return isBrandMatch && isPriceMatch && isMileageMatch;
       });
       dispatch(setCars(filteredCars));
