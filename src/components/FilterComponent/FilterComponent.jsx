@@ -4,6 +4,7 @@ import { prices } from "../../utils/carBrandsPrices";
 import { useDispatch, useSelector } from "react-redux";
 import { getCars } from "../../redux/selectors";
 import { setCars } from "../../redux/cars/carsSlice";
+import { StyledForm } from "./FilterForm.styled";
 
 export default function FilterComponent() {
   const cars = useSelector(getCars);
@@ -41,7 +42,7 @@ export default function FilterComponent() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <StyledForm onSubmit={formik.handleSubmit}>
       <div>
         <label htmlFor="brand">Car Brand:</label>
         <select
@@ -106,6 +107,6 @@ export default function FilterComponent() {
       <button type="button" onClick={handleReset}>
         Reset
       </button>
-    </form>
+    </StyledForm>
   );
 }
