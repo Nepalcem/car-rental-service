@@ -1,18 +1,23 @@
 import styled from "styled-components";
-import { blackColor, greyColor, borderGrey } from "../../globalVariables/globalColors";
+import {
+  blackColor,
+  greyColor,
+  borderGrey,
+} from "../../globalVariables/globalColors";
 import { Email, GitHub, LinkedIn, Telegram } from "@mui/icons-material";
+import { mainOwnerFont } from "../../globalVariables/globalFonts";
 
 export const HeaderBarMain = styled.div`
-display: flex;
-justify-content: space-between;
-width: 100%;
-border-bottom: 1px solid ${borderGrey};
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid ${borderGrey};
 `;
 
 export const OwnerName = styled.span`
-display: block;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-align-self: center;
+  display: block;
+  font-family: ${mainOwnerFont};
+  align-self: center;
 `;
 
 export const SocialUl = styled.ul`
