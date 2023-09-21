@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { blackColor, greyHover } from "../../globalVariables/globalColors";
 
 export const HeaderNavWrapper = styled.div`
-  margin: 15px 0;
+  margin: 15px 0px 0px 0px;
   width: 100%;
   display: flex;
   align-items: center;
