@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { addresSplitter } from "../../utils/addressSplitter";
 import { modelNameTruncate } from "../../utils/modelNameTruncate";
 
 import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
@@ -52,7 +51,7 @@ export default function FavoriteListItem({ car }) {
           </CarItemTitle>
         </div>
         <div className="price">
-          <p>{rentalPrice}</p>
+          <p>${rentalPrice}</p>
         </div>
       </TitleBlock>
       <ShortInfo>
