@@ -68,13 +68,6 @@ export default function CarListItem({ id }) {
             </li>
           );
         })}
-
-        {/* <p className="info-element">{addresSplitter(address)}</p>
-        <p className="info-element">{rentalCompany}</p>
-        <p className="info-element">{type}</p>
-        <p className="info-element">{id}</p>
-        <p className="info-element">{brand}</p>
-        <p className="info-element">{type}</p> */}
       </ShortInfo>
       <CarLearnMore onClick={handleOpenModal}>Learn More</CarLearnMore>
       <CarModal open={openModal} handleClose={handleCloseModal} id={id} />

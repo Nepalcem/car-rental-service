@@ -8,6 +8,8 @@ import {
   CarItemTitle,
   TitleBlock,
   CartListItemWrapper,
+  ShortInfo,
+  CarLearnMore,
 } from "../CarsListItem/CarListItem.styled";
 import CarModal from "../CarModal/CarModal";
 
@@ -23,6 +25,7 @@ export default function FavoriteListItem({ car }) {
     rentalCompany,
     address,
     photoLink,
+    options,
   } = car;
 
   const [openModal, setOpenModal] = useState(false);
@@ -52,15 +55,23 @@ export default function FavoriteListItem({ car }) {
           <p>{rentalPrice}</p>
         </div>
       </TitleBlock>
-      <div className="short-info">
-        <p className="info-element">{addresSplitter(address)}</p>
-        <p className="info-element">{rentalCompany}</p>
-        <p className="info-element">{type}</p>
-        <p className="info-element">{id}</p>
-      </div>
-      <button className="more" onClick={handleOpenModal}>
-        Learn More
-      </button>
+      <ShortInfo>
+        {[
+          ...address.split(", ").slice(1),
+          rentalCompany,
+          brand,
+          type,
+          id,
+          modelNameTruncate(options[0]),
+        ].map((el) => {
+          return (
+            <li className="info-element" key={el}>
+              {el}
+            </li>
+          );
+        })}
+      </ShortInfo>
+      <CarLearnMore onClick={handleOpenModal}>Learn More</CarLearnMore>
       <CarModal open={openModal} handleClose={handleCloseModal} id={id} />
     </CartListItemWrapper>
   );
