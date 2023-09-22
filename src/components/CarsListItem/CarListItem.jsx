@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { getCarById } from "../../redux/selectors";
-import { modelNameTruncate, optionsTruncate } from "../../utils/modelNameTruncate";
+import { modelNameTruncate } from "../../utils/modelNameTruncate";
 import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
 import {
   CarThumbnail,
