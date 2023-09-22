@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {
   buttonsBlue,
   shortInfoColor,
+  ConditionGrey
 } from "../../globalVariables/globalColors";
 
 export const ImageContainer = styled.div`
@@ -46,10 +47,26 @@ export const PopupDescription = styled.p`
 `;
 
 export const PopupOptions = styled.div`
-
   & h3 {
     font-weight: 500;
     font-size: 14px;
     line-height: calc(20 / 14);
+    margin-bottom: 8px;
   }
+`;
+
+export const RentalConditions = styled.div`
+& h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: calc(20 / 14);
+    margin-bottom: 8px;
+  }
+  & ul {
+    display: flex;
+  }
+`;
+
+export const ConditionElement = styled.li`
+ background-color: ${ConditionGrey};
 `;

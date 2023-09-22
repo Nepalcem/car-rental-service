@@ -13,6 +13,8 @@ import {
   ShortPopupInfo,
   PopupDescription,
   PopupOptions,
+  RentalConditions,
+  ConditionElement
 } from "./CarModal.styled";
 
 export default function CarModal({ open, handleClose, id }) {
@@ -102,26 +104,25 @@ export default function CarModal({ open, handleClose, id }) {
         </PopupDescription>
         <PopupOptions>
           <h3>Accessories and functionalities:</h3>
-          <ShortPopupInfo>
           {optionsArray.length > 0 && (
-            <ul className="options">
+            <ShortPopupInfo>
               {optionsArray.map((option) => {
                 return <li key={option}>{option}</li>;
               })}
-            </ul>
+            </ShortPopupInfo>
           )}
-          </ShortPopupInfo>
+
         </PopupOptions>
-        <div className="rental-conditions">
+        <RentalConditions>
           <h3>Rental conditions:</h3>
           {conditionsArray.length > 0 && (
             <ul className="conditions">
               {conditionsArray.map((option) => {
-                return <li key={option}>{option}</li>;
+                return <ConditionElement key={option}>{option}</ConditionElement>;
               })}
             </ul>
           )}
-        </div>
+        </RentalConditions>
         <button>
           <a href="tel:+380730000000">Rent a Car</a>
         </button>
