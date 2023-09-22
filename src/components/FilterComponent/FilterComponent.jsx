@@ -4,7 +4,8 @@ import { prices } from "../../utils/carBrandsPrices";
 import { useDispatch, useSelector } from "react-redux";
 import { getCars } from "../../redux/selectors";
 import { setCars } from "../../redux/cars/carsSlice";
-import { StyledForm } from "./FilterForm.styled";
+import { StyledForm, MileageInputs } from "./FilterForm.styled";
+
 
 export default function FilterComponent() {
   const cars = useSelector(getCars);
@@ -62,7 +63,7 @@ export default function FilterComponent() {
       </div>
 
       <div>
-        <label htmlFor="price">Price per Hour:</label>
+        <label htmlFor="price">Price/ 1 hour:</label>
         <select
           id="price"
           name="price"
@@ -70,7 +71,7 @@ export default function FilterComponent() {
           onBlur={formik.handleBlur}
           value={formik.values.price}
         >
-          <option value="">Select a price</option>
+          <option value="">To $</option>
           {prices.map((price) => (
             <option key={price} value={price}>
               {price}
@@ -79,8 +80,8 @@ export default function FilterComponent() {
         </select>
       </div>
 
-      <div>
-        <label htmlFor="mileageFrom">Mileage From:</label>
+      <MileageInputs>
+        <label id="mileagelabel" htmlFor="mileageFrom">Сar mileage / km</label>
         <input
           id="mileageFrom"
           name="mileageFrom"
@@ -88,11 +89,10 @@ export default function FilterComponent() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.mileageFrom}
+          placeholder="From"
         />
-      </div>
 
-      <div>
-        <label htmlFor="mileageTo">Mileage To:</label>
+        <label htmlFor="mileageTo"> </label>
         <input
           id="mileageTo"
           name="mileageTo"
@@ -100,8 +100,9 @@ export default function FilterComponent() {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.mileageTo}
+          placeholder="To"
         />
-      </div>
+      </MileageInputs>
 
       <button type="submit">Search</button>
       <button type="button" onClick={handleReset}>
