@@ -6,6 +6,7 @@ export const CarsListUL = styled.ul`
   flex-wrap: wrap;
   gap: 29px;
   margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
 export const ProgressBarStyled = styled(ProgressBar)`

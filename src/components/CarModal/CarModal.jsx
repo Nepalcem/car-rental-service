@@ -1,13 +1,19 @@
 import React from "react";
-import { Modal, Box, Typography, IconButton } from "@mui/material";
+import { Modal, Box, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getCarById, getFavoriteCarById } from "../../redux/selectors";
 import { modelNameTruncate } from "../../utils/modelNameTruncate";
-import { addresSplitter } from "../../utils/addressSplitter";
 import { rentalConditionSplitter } from "../../utils/rentalConditionSplitter";
 import { convertMileage } from "../../utils/convertMileageForUi";
+import {
+  CarPopupTitle,
+  ImageContainer,
+  ShortPopupInfo,
+  PopupDescription,
+  PopupOptions,
+} from "./CarModal.styled";
 
 export default function CarModal({ open, handleClose, id }) {
   const style = {
@@ -15,11 +21,11 @@ export default function CarModal({ open, handleClose, id }) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 541,
     bgcolor: "background.paper",
-    border: "2px solid #000",
+    borderRadius: 6,
     boxShadow: 24,
-    p: 4,
+    p: 5,
   };
 
   const location = useLocation();
@@ -56,13 +62,13 @@ export default function CarModal({ open, handleClose, id }) {
   return (
     <Modal open={open} onClose={handleClose} closeAfterTransition>
       <Box sx={style}>
-        <div className="car-full-image">
+        <ImageContainer>
           <img src={img || photoLink} alt={`${brand} ${model}`} />
-        </div>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
+        </ImageContainer>
+        <CarPopupTitle>
           {brand} <span className="blue">{modelNameTruncate(model)}</span>,{" "}
           {year}
-        </Typography>
+        </CarPopupTitle>
         <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -75,19 +81,28 @@ export default function CarModal({ open, handleClose, id }) {
         >
           <CloseIcon />
         </IconButton>
-        <div className="technical-info">
-          <p className="info-element">{addresSplitter(address)}</p>
-          <p className="info-element">Id: {id}</p>
-          <p className="info-element">Year: {year}</p>
-          <p className="info-element">Type: {type}</p>
-          <p className="info-element">Fuel Consumption: {fuelConsumption}</p>
-          <p className="info-element">Engine Size: {engineSize}</p>
-        </div>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        <ShortPopupInfo>
+          {[
+            ...address.split(", ").slice(1),
+            `ID: ${id}`,
+            `Year: ${year}`,
+            `Type: ${type}`,
+            `Fuel Consumption: ${fuelConsumption}`,
+            `Engine Size: ${engineSize}`,
+          ].map((el) => {
+            return (
+              <li className="info-element" key={el}>
+                {el}
+              </li>
+            );
+          })}
+        </ShortPopupInfo>
+        <PopupDescription>
           {description}
-        </Typography>
-        <div className="accessories">
+        </PopupDescription>
+        <PopupOptions>
           <h3>Accessories and functionalities:</h3>
+          <ShortPopupInfo>
           {optionsArray.length > 0 && (
             <ul className="options">
               {optionsArray.map((option) => {
@@ -95,7 +110,8 @@ export default function CarModal({ open, handleClose, id }) {
               })}
             </ul>
           )}
-        </div>
+          </ShortPopupInfo>
+        </PopupOptions>
         <div className="rental-conditions">
           <h3>Rental conditions:</h3>
           {conditionsArray.length > 0 && (
