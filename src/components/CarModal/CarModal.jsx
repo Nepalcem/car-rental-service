@@ -14,8 +14,10 @@ import {
   PopupDescription,
   PopupOptions,
   RentalConditions,
-  ConditionElement
+  ConditionElement,
 } from "./CarModal.styled";
+import { CarLearnMore } from "../CarsListItem/CarListItem.styled";
+import { callPhoneNumber } from "../../utils/callPhoneNumber";
 
 export default function CarModal({ open, handleClose, id }) {
   const style = {
@@ -78,7 +80,7 @@ export default function CarModal({ open, handleClose, id }) {
             position: "absolute",
             right: 8,
             top: 8,
-            color: (theme) => theme.palette.grey[500],
+            color: '#121417',
           }}
         >
           <CloseIcon />
@@ -99,9 +101,7 @@ export default function CarModal({ open, handleClose, id }) {
             );
           })}
         </ShortPopupInfo>
-        <PopupDescription>
-          {description}
-        </PopupDescription>
+        <PopupDescription>{description}</PopupDescription>
         <PopupOptions>
           <h3>Accessories and functionalities:</h3>
           {optionsArray.length > 0 && (
@@ -111,21 +111,27 @@ export default function CarModal({ open, handleClose, id }) {
               })}
             </ShortPopupInfo>
           )}
-
         </PopupOptions>
         <RentalConditions>
           <h3>Rental conditions:</h3>
           {conditionsArray.length > 0 && (
             <ul className="conditions">
-              {conditionsArray.map((option) => {
-                return <ConditionElement key={option}>{option}</ConditionElement>;
-              })}
+              {conditionsArray.map((option) =>
+                option.includes(":") ? (
+                  <ConditionElement key={option}>
+                    {option.split(":")[0]} :{" "}
+                    <span className="blue">{option.split(":")[1]}</span>
+                  </ConditionElement>
+                ) : (
+                  <ConditionElement key={option}>{option}</ConditionElement>
+                )
+              )}
             </ul>
           )}
         </RentalConditions>
-        <button>
-          <a href="tel:+380730000000">Rent a Car</a>
-        </button>
+        <CarLearnMore onClick={callPhoneNumber}>
+          Rent a Car
+        </CarLearnMore>
       </Box>
     </Modal>
   );

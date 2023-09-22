@@ -56,6 +56,7 @@ export const PopupOptions = styled.div`
 `;
 
 export const RentalConditions = styled.div`
+margin-bottom: 24px;
 & h3 {
     font-weight: 500;
     font-size: 14px;
@@ -64,9 +65,24 @@ export const RentalConditions = styled.div`
   }
   & ul {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  & + button {
+    max-width: 172px;
+    padding: 12px 50px;
   }
 `;
 
 export const ConditionElement = styled.li`
  background-color: ${ConditionGrey};
+ font-size: 12px;
+ line-height: calc(18/12);
+ padding: 7px 14px;
+ border-radius: 35px;
+ & .blue {
+    color: ${buttonsBlue};
+    font-weight: 600;
+  }
 `;

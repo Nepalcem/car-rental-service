@@ -39,8 +39,9 @@ export default function CarsList() {
 
   const loadMore = () => {
 
+    
+
     setVisibleCars((prev) => prev + 8);
-    console.log(visibleCars);
     if (filteredCars.length === 0 && visibleCars + 8 >= cars.length) {
       setShowLoadMore(false);
       toast.info(`You've reached the end of the collection!`);
@@ -48,8 +49,9 @@ export default function CarsList() {
       setShowLoadMore(false);
       toast.info(`You've reached the end of the collection!`);
     }
-    console.log(visibleCars);
+
   };
+
 
   return (
     <>
