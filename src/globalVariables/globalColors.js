@@ -6,3 +6,4 @@ export const formGrey = '#8A8A89';
 export const formInputGrey = '#F7F7FB';
 export const buttonsBlue = '#3470FF'
 export const buttonsBlueHover = '#0B44CD';
+export const shortInfoColor = 'rgba(18, 20, 23, 0.5)';
