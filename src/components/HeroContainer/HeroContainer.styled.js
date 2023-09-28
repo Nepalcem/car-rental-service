@@ -6,8 +6,6 @@ import { blackColor, greyHover } from "../../globalVariables/globalColors";
 export const HeroStyled = styled.div`
   position: relative;
   overflow: hidden;
-  /* box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
 
   & img {
     height: auto;
@@ -15,30 +13,7 @@ export const HeroStyled = styled.div`
     left: 0;
     z-index: -1;
   }
-  /* padding: 250px 0; */
-  /* background-image: url(${HeaderBg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  height: 100vh; */
 
-  /* &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 87.5vh;
-    background-image: url(${HeaderBg});
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
-    overflow: hidden;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  } */
   & h1 {
     font-size: 64px;
     line-height: 1;
