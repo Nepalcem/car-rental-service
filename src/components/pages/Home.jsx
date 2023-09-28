@@ -1,7 +1,11 @@
 import React from "react";
-
+import HeroPortal from "../HeroPortal/HeroPortal";
 import HeroContainer from "../HeroContainer/HeroContainer";
 
 export default function Home() {
-  return <HeroContainer/>;
+  return (
+      <HeroPortal>
+        <HeroContainer />
+      </HeroPortal>
+  );
 }

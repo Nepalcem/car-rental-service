@@ -16,6 +16,7 @@ export const HeaderNavWrapper = styled.div`
     gap: 40px;
   }
 
+
 `;
 
 export const NavLinkStyled = styled(NavLink)`
@@ -28,12 +29,12 @@ export const NavLinkStyled = styled(NavLink)`
     color: ${greyHover};
   }
   &::after {
-    content: '';
+    content: "";
     width: 0%;
     height: 1px;
     position: absolute;
+    top: 100%;
     left: 50%;
-    bottom: 0;
     background-color: ${greyHover};
     transform: translateX(-50%);
     transition: all 0.3s ease-in-out;

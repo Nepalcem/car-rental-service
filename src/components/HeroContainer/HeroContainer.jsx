@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import HeroBackground from "./HeroBackground";
 import { HeroStyled, HeroContent } from "./HeroContainer.styled";
 
 export default function HeroContainer() {
   return (
     <HeroStyled>
+      <HeroBackground/>
       <HeroContent>
         <h1>Rent a car cheaply</h1>
         <p>

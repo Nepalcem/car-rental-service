@@ -3,7 +3,7 @@ import { buttonsBlue, buttonsBlueHover, formGrey, formInputGrey } from "../../gl
 
 export const StyledForm = styled.form`
   display: flex;
-  margin: 30px 0 50px 0;
+  margin: 50px 0;
   justify-content: center;
   gap: 18px;
   & label {
