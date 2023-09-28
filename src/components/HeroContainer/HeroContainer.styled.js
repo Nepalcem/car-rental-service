@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import HeaderBg from "../../images/home.jpg";
 import { mainOwnerFont } from "../../globalVariables/globalFonts";
 import { blackColor, greyHover } from "../../globalVariables/globalColors";
 
