@@ -1,11 +1,11 @@
-import { FormControl, Select, MenuItem, Box } from "@mui/material";
+import { FormControl, Select, MenuItem } from "@mui/material";
 import styled from "styled-components";
 
 export const StyledFormControl = styled(FormControl)`
   .MuiInputBase-root {
     border-radius: 14px;
     &::before {
-        content: none;
+      content: none;
     }
   }
 `;
@@ -18,7 +18,7 @@ export const StyledFormSelect = styled(Select)`
     color: #212126;
     padding: 10px 32px 10px 14px;
     &::before {
-        content: none;
+      content: none;
     }
   }
   .MuiSelect-select {
@@ -29,7 +29,12 @@ export const StyledFormSelect = styled(Select)`
 
 
 `;
-
-export const StyledFormMenuItem = styled(MenuItem)``;
+export const CurrencyTitle = styled.p`
+  margin-right: 15px;
+`;
+export const StyledFormMenuItem = styled(MenuItem)`
+  background-color: #f0f0f0;
+  color: #333;
+`;
 
 // .MuiSelect-filled.MuiFilledInput-input

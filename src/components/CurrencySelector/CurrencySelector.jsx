@@ -5,6 +5,7 @@ import {
   StyledFormControl,
   StyledFormSelect,
   StyledFormMenuItem,
+  CurrencyTitle,
 } from "./CurrencySelector.styled";
 
 export default function CurrencySelector() {
@@ -27,7 +28,7 @@ export default function CurrencySelector() {
 
   return (
     <>
-      <p>Currency</p>
+      <CurrencyTitle>Currency</CurrencyTitle>
       <Box>
         <StyledFormControl variant="filled" hiddenLabel={true}>
           <StyledFormSelect
@@ -36,7 +37,11 @@ export default function CurrencySelector() {
             onChange={handleCurrencyChange}
           >
             {currencies.map((currency) => (
-              <StyledFormMenuItem key={currency.code} value={currency.code}>
+              <StyledFormMenuItem
+                key={currency.code}
+                value={currency.code}
+                style={{ gap: '5px' }}
+              >
                 {currency.symbol}
                 <FlagIcon code={currency.flag} size={14} />
               </StyledFormMenuItem>

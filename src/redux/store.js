@@ -13,16 +13,18 @@ import storage from "redux-persist/lib/storage";
 
 import { carsSlice } from "./cars/carsSlice";
 import favoriteSlice from "./favorites/favoriteSlice";
+import currencySlice from "./currency/currencySlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["favoriteCars"],
+  whitelist: ["favoriteCars", "currency"],
 };
 
 const rootReducer = combineReducers({
   cars: carsSlice.reducer,
   favoriteCars: favoriteSlice.reducer,
+  currency: currencySlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
