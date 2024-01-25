@@ -1,4 +1,4 @@
-# You are now viewing a repository of a Cart Rental Service App created by Michael Lykhovyd
+# You are now viewing a repository of a Car Rental Service App created by Michael Lykhovyd
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
