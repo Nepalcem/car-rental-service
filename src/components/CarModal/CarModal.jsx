@@ -3,7 +3,7 @@ import { Modal, Box, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getCarById, getFavoriteCarById } from "../../redux/selectors";
+import { getCarById, getCurrency, getFavoriteCarById } from "../../redux/selectors";
 import { modelNameTruncate } from "../../utils/modelNameTruncate";
 import { rentalConditionSplitter } from "../../utils/rentalConditionSplitter";
 import { convertMileage } from "../../utils/convertMileageForUi";
@@ -18,6 +18,7 @@ import {
 } from "./CarModal.styled";
 import { CarLearnMore } from "../CarsListItem/CarListItem.styled";
 import { callPhoneNumber } from "../../utils/callPhoneNumber";
+import { calculateCurrency } from "../../utils/currencyCalculator";
 
 export default function CarModal({ open, handleClose, id }) {
   const style = {
@@ -31,6 +32,7 @@ export default function CarModal({ open, handleClose, id }) {
     boxShadow: 24,
     p: 5,
   };
+  const currency = useSelector(getCurrency);
 
   const location = useLocation();
   const carSelector = location.pathname.includes("catalog")
@@ -60,7 +62,7 @@ export default function CarModal({ open, handleClose, id }) {
   const conditionsArray = [
     ...rentalConditionSplitter(rentalConditions),
     `Mileage: ${convertMileage(mileage)}`,
-    `Price: ${rentalPrice}$`,
+    `Price: ${calculateCurrency(rentalPrice, currency)}`,
   ];
 
   return (
