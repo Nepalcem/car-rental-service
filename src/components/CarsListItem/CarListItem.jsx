@@ -55,7 +55,7 @@ export default function CarListItem({ id }) {
           </CarItemTitle>
         </div>
         <div className="price">
-          <p>${calculateCurrency(rentalPrice, currency)}</p>
+          <p>{calculateCurrency(rentalPrice, currency)}</p>
         </div>
       </TitleBlock>
       <ShortInfo>

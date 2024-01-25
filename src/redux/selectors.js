@@ -12,15 +12,3 @@ export const getFavoriteCarById = (state, carId) => {
 };
 export const getFilteredCars = state => state.cars.filteredItems;
 export const getCurrency = state => state.currency;
-// export const getFilter = state => state.filter;
-// export const getIsAddContactPending = state => state.contacts.isAddContactPending;
-
-// export const getVisibleContacts = createSelector(
-//   [getContacts, getFilter],
-//   (contacts, filterValue) => {
-//     const lowerCaseFilterValue = filterValue.toLowerCase();
-//     return contacts.filter(contact =>
-//       contact.name.toLowerCase().includes(lowerCaseFilterValue)
-//     );
-//   }
-// );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { FlagIcon } from "react-flag-kit";
 import {
@@ -7,24 +7,26 @@ import {
   StyledFormMenuItem,
   CurrencyTitle,
 } from "./CurrencySelector.styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeCurrency } from "../../redux/currency/currencySlice";
+import { currencies } from "../../utils/currencyCalculator";
+import { getCurrency } from "../../redux/selectors";
 
 export default function CurrencySelector() {
-  const currencies = [
-    { code: "USD", symbol: "$", flag: "US" },
-    { code: "EUR", symbol: "€", flag: "EU" },
-    { code: "UAH", symbol: "₴", flag: "UA" },
-    // Add more currencies as needed
-  ];
-
-  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0].code);
-
   const dispatch = useDispatch();
+  const storedCurrency = useSelector(getCurrency);
+
+  const [selectedCurrency, setSelectedCurrency] = useState(
+    storedCurrency
+  );
+
+  useEffect(() => {
+    setSelectedCurrency(storedCurrency);
+  }, [storedCurrency]);
 
   const handleCurrencyChange = (event) => {
     const newCurrency = event.target.value;
-    setSelectedCurrency(newCurrency)
+    setSelectedCurrency(newCurrency);
     dispatch(changeCurrency(newCurrency));
   };
 

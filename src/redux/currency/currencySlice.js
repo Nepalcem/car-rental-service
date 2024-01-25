@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const persistedCurrency = localStorage.getItem("currency");
+
 export const currencySlice = createSlice({
   name: "currency",
-  initialState: JSON.parse(localStorage.getItem("currency")) || "USD",
+  initialState: persistedCurrency || "USD",
   reducers: {
     changeCurrency: (state, action) => {
       const currentCurrency = action.payload;
