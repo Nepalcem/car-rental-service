@@ -6,12 +6,10 @@ export const favoriteSlice = createSlice({
   reducers: {
     addFavoriteCar: (state, action) => {
       const updatedFavorites = [...state, action.payload];
-      localStorage.setItem("favoriteCars", JSON.stringify(updatedFavorites));
       return updatedFavorites;
     },
     removeFavoriteCar: (state, action) => {
       const updatedFavorites = state.filter((car) => car.id !== action.payload);
-      localStorage.setItem("favoriteCars", JSON.stringify(updatedFavorites));
       return updatedFavorites;
     },
   },

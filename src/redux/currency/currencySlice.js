@@ -6,7 +6,6 @@ export const currencySlice = createSlice({
   reducers: {
     changeCurrency: (state, action) => {
       const currentCurrency = action.payload;
-      localStorage.setItem("currency", JSON.stringify(currentCurrency));
       return currentCurrency;
     },
   },

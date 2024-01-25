@@ -11,6 +11,7 @@ export const getFavoriteCarById = (state, carId) => {
   return state.favoriteCars.find(car => car.id === carId);
 };
 export const getFilteredCars = state => state.cars.filteredItems;
+export const getCurrency = state => state.currency;
 // export const getFilter = state => state.filter;
 // export const getIsAddContactPending = state => state.contacts.isAddContactPending;
 

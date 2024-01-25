@@ -11,6 +11,9 @@ import {
   CarLearnMore,
 } from "../CarsListItem/CarListItem.styled";
 import CarModal from "../CarModal/CarModal";
+import { useSelector } from "react-redux";
+import { getCurrency } from "../../redux/selectors";
+import { calculateCurrency } from "../../utils/currencyCalculator";
 
 export default function FavoriteListItem({ car }) {
   const {
@@ -26,7 +29,7 @@ export default function FavoriteListItem({ car }) {
     photoLink,
     options,
   } = car;
-
+  const currency = useSelector(getCurrency);
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -51,7 +54,7 @@ export default function FavoriteListItem({ car }) {
           </CarItemTitle>
         </div>
         <div className="price">
-          <p>${rentalPrice}</p>
+          <p>${calculateCurrency(rentalPrice, currency)}</p>
         </div>
       </TitleBlock>
       <ShortInfo>

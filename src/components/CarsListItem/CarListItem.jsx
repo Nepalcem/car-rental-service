@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { getCarById } from "../../redux/selectors";
+import { getCarById, getCurrency } from "../../redux/selectors";
 import { modelNameTruncate } from "../../utils/modelNameTruncate";
 import FavoriteHeart from "../FavoriteHeart/FavoriteHeart";
 import {
@@ -12,6 +12,7 @@ import {
   CarLearnMore,
 } from "./CarListItem.styled";
 import CarModal from "../CarModal/CarModal";
+import { calculateCurrency } from "../../utils/currencyCalculator";
 
 export default function CarListItem({ id }) {
   const {
@@ -27,6 +28,9 @@ export default function CarListItem({ id }) {
     options,
   } = useSelector((state) => getCarById(state, id));
 
+  const currency = useSelector(getCurrency);
+
+
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -35,6 +39,7 @@ export default function CarListItem({ id }) {
   const handleCloseModal = () => {
     setOpenModal(false);
   };
+
 
   return (
     <CartListItemWrapper>
@@ -50,7 +55,7 @@ export default function CarListItem({ id }) {
           </CarItemTitle>
         </div>
         <div className="price">
-          <p>${rentalPrice}</p>
+          <p>${calculateCurrency(rentalPrice, currency)}</p>
         </div>
       </TitleBlock>
       <ShortInfo>
